@@ -1,0 +1,76 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AboutUsPage {
+  createdAt DateTime @default(now())
+  goals     String?
+  id        String   @id @default(cuid())
+  mission   String?
+  updatedAt DateTime @updatedAt
+  vision    String?
+}
+
+model HomePage {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  title       String?
+  updatedAt   DateTime @updatedAt
+}
+
+model ExternalLinkPage {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  title     String?
+  updatedAt DateTime @updatedAt
+  url       String?
+}
+
+model ServicesPage {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  title       String?
+  updatedAt   DateTime @updatedAt
+}
+
+model NewsPage {
+  content       String?
+  createdAt     DateTime  @default(now())
+  datePublished DateTime?
+  id            String    @id @default(cuid())
+  title         String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model Partner {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  logoUrl   String?
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model Resource {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  link        String?
+  title       String?
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactUsPage {
+  createdAt   DateTime @default(now())
+  email       String?
+  id          String   @id @default(cuid())
+  message     String?
+  phoneNumber String?
+  updatedAt   DateTime @updatedAt
+}
